@@ -14,9 +14,13 @@ class LibraryItem {
     }
     
     returnItem() {
+        if(!this.isAvailable) {
         this.isAvailable= true;
-        return `${this.title} is successfully returned\n`;
+        return `${this.title} is successfully returned!\n`;
+        }
+        return `${this.title} was never checked out!\n`;
     }
+    
 }
 
 class Book extends LibraryItem {
@@ -68,6 +72,7 @@ console.log(Book3.getBookDetails());
 console.log(Book1.checkOut());
 console.log(Book2.checkOut());
 console.log(Book3.checkOut());
+Book1.isAvailable= true;
 console.log(Book1.returnItem());
 console.log(Book2.returnItem());
 console.log(Book3.returnItem());
